@@ -1,10 +1,17 @@
-// import React from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
+import s from './Filter.module.css'
 
-// function Filter() {
-    
-// }
+function Filter({value, changeFilter}) {
+    return (
+         <label>
+        Find contacts by name
+            <input className={s.seacrhInput} type='text' placeholder='Enter a name' value={value} onChange={changeFilter}/>
+    </label>
+    )
+   
+}
 
 
 
-// export default Filter;
+export default Filter;

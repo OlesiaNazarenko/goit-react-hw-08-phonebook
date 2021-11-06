@@ -1,32 +1,31 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import s from './ContactList.module.css'
 
-function ContactList({ data,deleteContact}) {
+function ContactList({ data, deleteContact, onClick}) {
     return (
-        
-           data.map((data)=>{
-               return (
-                    <ul className={s.ContactList}>
-                       <li id={data.id}>
-                           <span className={s.ContactListSpan}>{ data.name}</span>
-                           <span className={s.ContactListSpan}>{data.number}</span>
-                           <button
-                                className={s.btnDelete}
-                                type="button" onClick={() => deleteContact(data.id)}
-                               >
-                                Delete
-                            </button>
-                        </li>
-                    </ul>
-               ) 
-           }) 
-        
+        <ul className={s.ContactList}>
+            {data.map(({id, name, number}) => {
+                return (
+                    <li key={id} className={s.ContactListItem}>
+                        <span className={s.ContactListSpan}>{name}</span>
+                        <span className={s.ContactListSpan}>{number}</span>
+                        <button key={id}
+                            className={s.btnDelete}
+                            type="button" onClick={() => deleteContact(id)}
+                        >
+                            Delete
+                        </button>
+                    </li>
+                   
+                )
+            })}
+         </ul>
     )
 }
 
-// ContactList.propTypes = {
-//     data: PropTypes.arrayOf.isRequired,
-// }
-//  
+ContactList.propTypes = {
+    data: PropTypes.array.isRequired,
+    deleteContact: PropTypes.func.isRequired,
+}; 
 export default ContactList;

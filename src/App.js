@@ -1,47 +1,65 @@
-// import 'react-native-get-random-values';
 import React, { Component } from 'react';
 import s from './App.module.css'
-
+import { toast,Zoom, Flip, Bounce} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import shortid from 'shortid';
 import ContactList from './components/contactList/ContactList';
-// import Filter from './components/filter/Filter';
+import Filter from './components/filter/Filter';
 import ContactForm from './components/contactForm/ContactForm';
+
+toast.configure()
 
 export default class App extends Component {
   state = {
   contacts: [],
-  name: ''
+  filter: ''
   }
 
- 
   formSubmitHandler = data => {
-    this.setState(({ contacts }) => ({
-      contacts: [
-        ...contacts,
-        {
-          id: shortid.generate(),
-          ...data,
-        },
-      ],
-    }));
+    if (this.state.contacts.find(({ name }) => name === data.name)) {
+      toast.warn(`${data.name} is already in your phonebook`, {
+              transition: Bounce
+            });
+            return;
+    } else {
+      this.setState(({ contacts }) => ({
+        contacts: [
+          ...contacts,
+          {
+            id: shortid.generate(),
+            ...data,
+          },
+        ],
+      }));
+      toast.success('The contact is added to the phonebook.', {transition: Flip})
+        }
   }
 
-
-  deleteContact = (id) => {
-    this.setState(({contacts}) => {
-    contacts: contacts.filter(contact.id=>{return contact.id != id})
-  })
+  deleteContact = idContacts => {
+    toast('Deleted', { autoClose: 3000,transition:Zoom, })
+    this.setState(({contacts}) => ({
+      contacts: contacts.filter(({ id })=>{return id !== idContacts})
+    }))
 }
 
-  render() {
-    return (
-      <div className={s.mainDiv}>
-        <h1>Phonebook</h1>
-         <ContactForm onSubmit={this.formSubmitHandler}/>
+  
+  changeFilter = (e) => {
+    this.setState({filter:e.currentTarget.value})
+  }
 
+  getVisibleContacts = () => {
+    const normalizefilter = this.state.filter.toLowerCase();
+    return(this.state.contacts.filter((contact)=>{return contact.name.toLowerCase().includes(normalizefilter)}))
+  }
+
+  render() {
+       return (
+        <div className={s.mainDiv}>
+        <h1>Phonebook</h1>
+        <ContactForm onSubmit={this.formSubmitHandler}/>
         <h2>Contacts</h2>
-        {/* <Filter  /> */}
-        <ContactList data={this.state.contacts} onClick={ this.deleteContact}/>
+        <Filter value={this.state.filter} changeFilter={this.changeFilter} />
+        <ContactList data={this.getVisibleContacts()} deleteContact={ this.deleteContact} />
       </div>
     )
   }
