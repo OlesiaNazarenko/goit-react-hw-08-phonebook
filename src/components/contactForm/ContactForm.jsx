@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import s from 'components/contactForm/ContactForm.module.css'
 
@@ -60,11 +59,6 @@ class ContactForm extends Component {
     )
    }
     
-}
-
-ContactForm.propTypes = {
-    handleSubmit: PropTypes.func,
-    handleChange:PropTypes.func,
 }
 
 export default ContactForm;
