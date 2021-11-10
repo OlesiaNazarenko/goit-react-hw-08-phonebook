@@ -8,9 +8,6 @@ class ContactForm extends Component {
         number:'',
     }
 
-    nameInputId = shortid.generate();
-    numberInputId = shortid.generate();
-    
     handleChange = e => {
         this.setState({
         [e.currentTarget.name]:e.currentTarget.value
@@ -23,13 +20,13 @@ class ContactForm extends Component {
         this.reset();;
     }
     reset = () => {
-        this.setState({ name: " ", number: "", })
+        this.setState({ name: "", number: "", })
     }
     render() {
        return(
        <form onSubmit={this.handleSubmit} className={s.contactsForm}>
-            <label htmlFor={this.nameInputId} className={s.label}>Name
-                   <input id={this.nameInputId}
+            <label  className={s.label}>Name
+                   <input 
                     className={s.input}
                     type="text"
                     name="name"
@@ -41,8 +38,8 @@ class ContactForm extends Component {
                     required
             />
             </label>
-            <label htmlFor={this.numberInputId} className={s.label}>Number
-                   <input id={this.numberInputId}
+            <label  className={s.label}>Number
+                   <input 
                     className={s.input}
                     type="tel"
                     name="number"

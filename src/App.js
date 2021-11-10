@@ -16,7 +16,7 @@ export default class App extends Component {
   }
 
   formSubmitHandler = data => {
-    if (this.state.contacts.find(({ name }) => name === data.name)) {
+    if (this.state.contacts.find(({ name }) => name.toLowerCase() === data.name.toLowerCase())) {
       toast.warn(`${data.name} is already in your phonebook`, {
               transition: Bounce
             });
@@ -31,7 +31,8 @@ export default class App extends Component {
           },
         ],
       }));
-      toast.success('The contact is added to the phonebook.', {transition: Flip})
+      toast.success('The contact is added to the phonebook.', { transition: Flip })
+  
         }
   }
 
