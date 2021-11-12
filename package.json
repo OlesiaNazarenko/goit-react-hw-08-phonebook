@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-02-phonebook",
+  "name": "goit-react-hw-03-phonebook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,13 +31,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OlesiaNazarenko/goit-react-hw-02-phonebook.git"
+    "url": "git+https://github.com/OlesiaNazarenko/goit-react-hw-03-phonebook.git"
   },
   "author": "Olesia Nazarenko <eightpa8@gmail.com>",
   "bugs": {
-    "url": "https://github.com/OlesiaNazarenko/goit-react-hw-02-phonebook/issues"
+    "url": "https://github.com/OlesiaNazarenko/goit-react-hw-03-phonebook/issues"
   },
-  "homepage": "https://OlesiaNazarenko.github.io/goit-react-hw-02-phonebook",
+  "homepage": "https://OlesiaNazarenko.github.io/goit-react-hw-03-phonebook",
   "eslintConfig": {
     "extends": [
       "react-app",

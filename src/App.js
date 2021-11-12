@@ -52,7 +52,23 @@ export default class App extends Component {
     const normalizefilter = this.state.filter.toLowerCase();
     return(this.state.contacts.filter((contact)=>{return contact.name.toLowerCase().includes(normalizefilter)}))
   }
+// ()     {}
 
+  componentDidUpdate(prevProps, prevState){
+    if (this.state.contacts !== prevState.contacts) {
+     localStorage.setItem('contacts', JSON.stringify(this.state.contacts)) 
+   }
+  }
+
+  componentDidMount(){
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts)
+    if (parsedContacts) {
+      
+      this.setState({ contacts: parsedContacts })
+    }
+   
+  }
   render() {
        return (
         <div className={s.mainDiv}>
