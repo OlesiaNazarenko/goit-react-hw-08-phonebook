@@ -16,7 +16,7 @@ export default class App extends Component {
   }
 
   formSubmitHandler = data => {
-    if (this.state.contacts.find(({ name }) => name.toLowerCase() === data.name.toLowerCase())) {
+    if (this.state.contacts.some(({ name }) => name.toLowerCase() === data.name.toLowerCase())) {
       toast.warn(`${data.name} is already in your phonebook`, {
               transition: Bounce
             });
