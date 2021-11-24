@@ -15,6 +15,8 @@ function ContactForm({ onSubmit }) {
         setNumber(e.target.value);
         console.log('number:', e.target.value);
         break;
+      default:
+        return;
     }
     // setName(e.currentTarget.value);
     // setNumber(e.currentTarget.value);

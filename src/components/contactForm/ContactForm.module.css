@@ -1,34 +1,26 @@
-.contactsForm{
-    width:100%;
-    
-
-    
+.contactsForm {
+  width: 100%;
 }
-.label{
-    display: block;
-    margin: 15px 0;
-    position: relative;
+.label {
+  display: block;
+  margin: 15px 0;
+  position: relative;
 }
-.input{
-    position: absolute;
-    left:70px;
-    top:-5px;
-    padding:3px;
-    border:none;
-box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5px 0.5px,
-  rgba(9, 30, 66, 0.13) 0px 0px 0.5px 0.5px;
-
-
-
+.input {
+  position: absolute;
+  left: 70px;
+  top: -5px;
+  padding: 3px;
+  border: none;
+  box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5px 0.5px,
+    rgba(9, 30, 66, 0.13) 0px 0px 0.5px 0.5px;
 }
-.contactsFormBtn{
-    padding:5px 10px;
-    border:none;
-    background-color: forestgreen;
-    margin-top: 10px;
-color:white;
-   box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5px 0.5px,
-  rgba(9, 30, 66, 0.13) 0px 0px 0.5px 0.5px;
-
-
+.contactsFormBtn {
+  padding: 5px 10px;
+  border: none;
+  background-color: forestgreen;
+  margin-top: 10px;
+  color: white;
+  box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5px 0.5px,
+    rgba(9, 30, 66, 0.13) 0px 0px 0.5px 0.5px;
 }
