@@ -55,8 +55,8 @@ export default function App() {
     toast('Deleted', { autoClose: 3000, transition: Zoom });
   };
 
-  const changeFilter = e => {
-    return setFilters(e.currentTarget.value);
+  const changeFilter = value => {
+    return setFilters(value);
   };
   return (
     <div className={s.mainDiv}>

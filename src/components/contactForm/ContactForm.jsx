@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import s from 'components/contactForm/ContactForm.module.css';
-
 function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':
@@ -18,17 +16,13 @@ function ContactForm({ onSubmit }) {
       default:
         return;
     }
-    // setName(e.currentTarget.value);
-    // setNumber(e.currentTarget.value);
   };
-
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit(name, number);
     setName('');
     setNumber('');
   };
-
   return (
     <form onSubmit={handleSubmit} className={s.contactsForm}>
       <label className={s.label}>
@@ -65,5 +59,4 @@ function ContactForm({ onSubmit }) {
     </form>
   );
 }
-
 export default ContactForm;
