@@ -1,6 +1,13 @@
-import PropTypes from 'prop-types';
 import s from './ContactList.module.css';
-function ContactList({ data, deleteContact }) {
+import { toast, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {useSelector, useDispatch} from 'react-redux'
+import {delete_contact} from '../../redux/contacts/actions.js'
+import {getVisibleContacts} from '../../redux/contacts/selectors.js'
+toast.configure();
+function ContactList() {
+  const data = useSelector( getVisibleContacts)
+   const dispatch = useDispatch();
   return (
     <ul className={s.ContactList}>
       {data.map(({ id, name, number }) => {
@@ -12,7 +19,7 @@ function ContactList({ data, deleteContact }) {
               key={id}
               className={s.btnDelete}
               type="button"
-              onClick={() => deleteContact(id)}
+              onClick={() => { dispatch(delete_contact(id)); toast('Deleted', { autoClose: 3000, transition: Zoom })}}
             >
               Delete
             </button>
@@ -22,8 +29,5 @@ function ContactList({ data, deleteContact }) {
     </ul>
   );
 }
-ContactList.propTypes = {
-  data: PropTypes.array.isRequired,
-  deleteContact: PropTypes.func.isRequired,
-};
+
 export default ContactList;
