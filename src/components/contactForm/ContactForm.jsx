@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {useDispatch,useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import s from 'components/contactForm/ContactForm.module.css';
-import { add_contact} from '../../redux/contacts/actions.js'
-import { getContacts} from '../../redux/contacts/selectors.js'
+import { add_contact } from '../../redux/contacts/contacts-actions.js';
+import { getContacts } from '../../redux/contacts/contacts-selectors.js';
 toast.configure();
 function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-   const contacts = useSelector(getContacts);
-  const dispatch =useDispatch()
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':
@@ -25,11 +25,12 @@ function ContactForm() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-     contacts.map(contact => contact.name).includes(name)
-      ?  toast.warn(`${name} is already in your phonebook`, {
-        transition: Bounce,
-      }) : dispatch(add_contact({ name, number }));
-    
+    contacts.contacts.map(contact => contact.name).includes(name)
+      ? toast.warn(`${name} is already in your phonebook`, {
+          transition: Bounce,
+        })
+      : dispatch(add_contact({ name, number }));
+
     setName('');
     setNumber('');
   };
@@ -42,7 +43,7 @@ function ContactForm() {
           type="text"
           name="name"
           value={name}
-          // autoComplete="off"
+          autoComplete="off"
           onChange={handleChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
@@ -56,7 +57,7 @@ function ContactForm() {
           type="tel"
           name="number"
           value={number}
-          // autoComplete="off"
+          autoComplete="off"
           onChange={handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"

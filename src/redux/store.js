@@ -1,19 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import reducer from './contacts/reducers.js'
-
-const defaultState = {
-    contacts:[{
-        name:"",
-        number:"",
-        id:''
-    }],
-    filter:'',
-}
-
- const store = configureStore({
-    reducer:defaultState, 
-    middleware: getDefaultMiddleware =>
+import reducer from './contacts/contacts-reducers.js';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+const persistConfig = {
+  key: 'phonebook',
+  storage,
+  blacklist: ['filter'],
+};
+const store = configureStore({
+  reducer: {
+    contacts: persistReducer(persistConfig, reducer),
+  },
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({ serializableCheck: false }).concat(logger),
-    devTools: process.env.NODE_ENV === 'development'})
- export default store;
+  devTools: process.env.NODE_ENV === 'development',
+});
+const persistor = persistStore(store);
+export default { store, persistor };

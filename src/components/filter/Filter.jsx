@@ -1,17 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from '../../redux/contacts/selectors.js';
-import {search_contact } from '../../redux/contacts/actions.js';
+import { getFilter } from '../../redux/contacts/contacts-selectors.js';
+import { search_contact } from '../../redux/contacts/contacts-actions.js';
 import s from './Filter.module.css';
 function Filter() {
-   const filter = useSelector(getFilter);
-   console.log(filter)
-
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
   const handleOnChange = e => {
-       console.log(e.target.value)
-   dispatch(search_contact(e.target.value))
+    dispatch(search_contact(e.target.value));
   };
-
   return (
     <label>
       Find contacts by name
@@ -20,10 +16,9 @@ function Filter() {
         type="text"
         placeholder="Enter a name"
         value={filter}
-        onChange ={handleOnChange}
+        onChange={handleOnChange}
       />
     </label>
   );
 }
-
 export default Filter;
