@@ -1,17 +1,28 @@
 import axios from 'axios';
-import add_contact from './contacts-actions';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
   fetchContacts,
   addContact,
   deleteContact,
 } from '../../services/contacts-api';
 
-const getContacts = () => async dispatch => {
-  dispatch(add_contact());
-  try {
-    const contacts = fetchContacts();
-    dispatch(add_contact(contacts));
-  } catch (error) {
-    alert('error');
-  }
-};
+export const getAllContacts = createAsyncThunk(
+  'contacts/fetchAllContacts',
+  fetchContacts,
+);
+export const addContacts = createAsyncThunk('contacts/addContact', addContact);
+export const deleteContacts = createAsyncThunk(
+  'contacts/addContact',
+  deleteContact,
+);
+// const getContacts = () => async dispatch => {
+//   dispatch(fetchContactRequest());
+//   try {
+//     const contacts = fetchContacts();
+//     dispatch(fetchContactSuccess());
+
+//   } catch (error) {
+//     dispatch(fetchContactError(error));
+//     alert('error');
+//   }
+// };
