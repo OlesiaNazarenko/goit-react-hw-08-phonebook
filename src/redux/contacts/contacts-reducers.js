@@ -7,8 +7,8 @@ import {
   deleteContacts,
 } from './contacts-operations';
 const { search_contact } = contactsActions;
-const contacts = createReducer([], {
-  [getAllContacts.fulfield]: (_, { payload }) => payload,
+const items = createReducer([], {
+  [getAllContacts.fulfilled]: (_, { payload }) => payload,
   [addContacts.fulfilled]: (state, { payload }) => {
     return [...state, payload];
   },
@@ -31,13 +31,13 @@ const isLoading = createReducer(false, {
   [deleteContacts.fulfilled]: () => false,
   [deleteContacts.rejected]: () => false,
 });
-const error = createReducer(null, {
-  [fetchContacts.rejected]: (_, action) => action.payload,
-  [fetchContacts.pending]: () => null,
-});
+// const error = createReducer(null, {
+//   [fetchContacts.rejected]: (_, action) => action.payload,
+//   [fetchContacts.pending]: () => null,
+// });
 
 export default combineReducers({
-  contacts,
+  items,
   filter,
   isLoading,
 });

@@ -3,10 +3,8 @@ import { toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import s from 'components/contactForm/ContactForm.module.css';
-import { add_contact } from 'redux/contacts/contacts-actions.js';
+import { addContacts } from 'redux/contacts/contacts-operations.js';
 import { getContacts } from 'redux/contacts/contacts-selectors.js';
-// import { fetchContacts } from 'redux/contacts/contacts-operations';
-import { fetchContacts } from 'services/contacts-api';
 
 toast.configure();
 function ContactForm() {
@@ -14,12 +12,7 @@ function ContactForm() {
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-  const data = fetchContacts();
-  console.log(
-    fetchContacts().then(result => {
-      return result;
-    }),
-  );
+
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':
@@ -38,7 +31,7 @@ function ContactForm() {
       ? toast.warn(`${name} is already in your phonebook`, {
           transition: Bounce,
         })
-      : dispatch(fetchContacts({ name, number }));
+      : dispatch(addContacts({ name, number }));
 
     setName('');
     setNumber('');

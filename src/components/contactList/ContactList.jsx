@@ -2,7 +2,7 @@ import s from './ContactList.module.css';
 import { toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { delete_contact } from '../../redux/contacts/contacts-actions.js';
+import { deleteContacts } from 'redux/contacts/contacts-operations';
 import { getVisibleContacts } from '../../redux/contacts/contacts-selectors.js';
 toast.configure();
 function ContactList() {
@@ -20,7 +20,7 @@ function ContactList() {
               className={s.btnDelete}
               type="button"
               onClick={() => {
-                dispatch(delete_contact(id));
+                dispatch(deleteContacts(id));
                 toast('Deleted', { autoClose: 3000, transition: Zoom });
               }}
             >

@@ -1,9 +1,13 @@
-export const getContacts = state => state.contacts;
-export const getFilter = state => state.filter;
+export const getLoading = state => state.contacts.loading;
+export const getContacts = state => state.contacts.items;
+export const getFilter = state => state.contacts.filter;
+
 export const getVisibleContacts = state => {
-  const contacts = getContacts(state.contacts);
-  const filters = state.contacts.filter;
-  return contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filters.toLowerCase()),
+  const filter = state.contacts.filter;
+  const items = state.contacts.items;
+  const normalizedFilter = filter.toLowerCase();
+  console.log(items);
+  return items.filter(({ name }) =>
+    name.toLowerCase().includes(normalizedFilter),
   );
 };

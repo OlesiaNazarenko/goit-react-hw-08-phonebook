@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   fetchContacts,
   addContact,
@@ -8,12 +7,24 @@ import {
 
 export const getAllContacts = createAsyncThunk(
   'contacts/fetchAllContacts',
-  fetchContacts,
+  async () => {
+    const contacts = await fetchContacts();
+    return { contacts };
+  },
 );
-export const addContacts = createAsyncThunk('contacts/addContact', addContact);
+export const addContacts = createAsyncThunk(
+  'contacts/addContact',
+  async contacts => {
+    const contact = await addContact(contacts);
+    return { contact };
+  },
+);
 export const deleteContacts = createAsyncThunk(
   'contacts/addContact',
-  deleteContact,
+  async contactId => {
+    const { id } = await deleteContact(contactId);
+    return { id };
+  },
 );
 // const getContacts = () => async dispatch => {
 //   dispatch(fetchContactRequest());
