@@ -5,14 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from 'components/contactForm/ContactForm.module.css';
 import { addContacts } from 'redux/contacts/contacts-operations.js';
 import { getContacts } from 'redux/contacts/contacts-selectors.js';
-
 toast.configure();
 function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':
@@ -27,7 +25,7 @@ function ContactForm() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    contacts.contacts.map(contact => contact.name).includes(name)
+    contacts.map(contact => contact.name).includes(name)
       ? toast.warn(`${name} is already in your phonebook`, {
           transition: Bounce,
         })

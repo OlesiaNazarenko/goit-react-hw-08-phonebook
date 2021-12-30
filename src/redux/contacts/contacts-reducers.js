@@ -15,11 +15,9 @@ const items = createReducer([], {
   [deleteContacts.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
-
 const filter = createReducer('', {
   [search_contact]: (_, { payload }) => payload,
 });
-
 const isLoading = createReducer(false, {
   [getAllContacts.pending]: () => true,
   [getAllContacts.fulfilled]: () => false,
@@ -31,11 +29,6 @@ const isLoading = createReducer(false, {
   [deleteContacts.fulfilled]: () => false,
   [deleteContacts.rejected]: () => false,
 });
-// const error = createReducer(null, {
-//   [fetchContacts.rejected]: (_, action) => action.payload,
-//   [fetchContacts.pending]: () => null,
-// });
-
 export default combineReducers({
   items,
   filter,

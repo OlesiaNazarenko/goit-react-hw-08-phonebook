@@ -5,11 +5,10 @@ import ContactList from './components/contactList/ContactList';
 import Filter from './components/filter/Filter';
 import ContactForm from './components/contactForm/ContactForm';
 import { getAllContacts } from 'redux/contacts/contacts-operations';
-import { getFilter, getLoading } from './redux/contacts/contacts-selectors';
+import { getLoading } from './redux/contacts/contacts-selectors';
 function App() {
   const dispatch = useDispatch();
   const isLoadingContacts = useSelector(getLoading);
-
   useEffect(() => {
     dispatch(getAllContacts());
   }, [dispatch]);
