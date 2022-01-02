@@ -1,30 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Suspense } from 'react';
 import s from './App.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import ContactList from './components/contactList/ContactList';
-import Filter from './components/filter/Filter';
-import ContactForm from './components/contactForm/ContactForm';
-import { getAllContacts } from 'redux/contacts/contacts-operations';
-import { getLoading } from './redux/contacts/contacts-selectors';
+// import { useDispatch, useSelector } from 'react-redux';
+import PhonebookHome from './components/phonebookHome/PhonebookHome';
+import Header from './components/header/Header';
+import AuthPage from './components/authPage/AuthPage';
+import HomePage from 'components/homePage/HomePage';
 function App() {
-  const dispatch = useDispatch();
-  const isLoadingContacts = useSelector(getLoading);
+  // const dispatch = useDispatch();
+  const [isAuth] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
-    dispatch(getAllContacts());
-  }, [dispatch]);
+    isAuth ? navigate('/') : navigate('/auth/login');
+  }, [isAuth]);
+
   return (
-    <div className={s.mainDiv}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      {isLoadingContacts && <h2>downloading...</h2>}
-      {!isLoadingContacts && (
-        <>
-          <h2>Contacts</h2>
-          <Filter />
-          <ContactList />
-        </>
+    <>
+      <Header />
+      {isAuth ? (
+        <Suspense fallback={<h1>Downloading...</h1>}>
+          <Routes>
+            <Route path="/contacts" element={<PhonebookHome />} />
+          </Routes>
+        </Suspense>
+      ) : (
+        <Routes>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/auth/:authType" element={<AuthPage />} />
+        </Routes>
       )}
-    </div>
+    </>
   );
 }
 export default App;

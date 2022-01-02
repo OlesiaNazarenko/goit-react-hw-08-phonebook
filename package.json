@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-06-phonebook",
+  "name": "goit-react-hw-08-phonebook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +17,7 @@
     "react-notifications": "^1.7.2",
     "react-notifications-component": "^3.1.0",
     "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
     "react-toastify": "^8.1.0",
     "redux": "^4.1.2",
@@ -38,13 +39,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OlesiaNazarenko/goit-react-hw-06-phonebook.git"
+    "url": "git+https://github.com/OlesiaNazarenko/goit-react-hw-08-phonebook.git"
   },
   "author": "Olesia Nazarenko <eightpa8@gmail.com>",
   "bugs": {
-    "url": "https://github.com/OlesiaNazarenko/goit-react-hw-06-phonebook/issues"
+    "url": "https://github.com/OlesiaNazarenko/goit-react-hw-08-phonebook/issues"
   },
-  "homepage": "https://OlesiaNazarenko.github.io/goit-react-hw-06-phonebook",
+  "homepage": "https://OlesiaNazarenko.github.io/goit-react-hw-08-phonebook",
   "eslintConfig": {
     "extends": [
       "react-app",

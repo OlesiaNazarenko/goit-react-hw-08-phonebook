@@ -25,7 +25,7 @@ function ContactForm() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    contacts.map(contact => contact.name).includes(name)
+    contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())
       ? toast.warn(`${name} is already in your phonebook`, {
           transition: Bounce,
         })
