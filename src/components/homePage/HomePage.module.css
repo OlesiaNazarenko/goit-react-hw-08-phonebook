@@ -1,9 +1,10 @@
 .homePageWrap {
-  width: 100%;
+  width: 60%;
   padding: 20px 35px;
-  margin-top: 50px;
-  color: #0f1f38;
+  margin: 50px auto;
+  color: #2f2e33;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(2px);
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 60, 0.2);
+  border-radius: 20px;
 }

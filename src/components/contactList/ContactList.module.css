@@ -1,18 +1,18 @@
 .btnDelete {
   padding: 5px 10px;
   border: none;
-  border-radius: 5px;
-  background-color: #ff7f50;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 60, 0.2);
+  border-radius: 6px;
   margin-top: -25px;
   margin-left: auto;
   display: block;
   color: white;
-  box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5px 0.5px,
-    rgba(9, 30, 66, 0.13) 0px 0px 0.5px 0.5px;
 }
 .btnDelete:hover,
 .btnDelete:active {
-  background-color: orangered;
+  background-color: hsla(22, 100%, 77%, 1);
 }
 .ContactListSpan {
   margin: 0 10px;

@@ -1,5 +1,5 @@
 body {
-  color: #0f1f38;
+  color: white;
 }
 .formWrap {
   width: 400px;
@@ -44,6 +44,7 @@ body {
   padding: 8px;
   display: block;
   width: 80%;
+  background-color: white;
 }
 .authInput[placeholder] {
   font-size: 10px;
@@ -55,14 +56,14 @@ body {
 .label:hover .authInput,
 .label:active .authInput,
 .label:focus-within .authInput {
-  border: 1px solid #337bae;
-  color: #337bae;
+  border: 1px solid hsla(340, 100%, 76%, 1);
+  color: hsla(340, 100%, 76%, 1);
   cursor: pointer;
 }
 .label:hover .labelIcons,
 .label:active .labelIcons,
 .label:focus-within .labelIcons {
-  fill: #4d85bd;
+  fill: hsla(340, 100%, 76%, 1);
 }
 
 .authBtn {

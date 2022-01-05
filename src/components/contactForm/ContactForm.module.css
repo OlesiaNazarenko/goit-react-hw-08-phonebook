@@ -1,32 +1,53 @@
 .contactsForm {
-  width: 100%;
+  width: 300px;
 }
 .label {
   display: block;
-  margin: 15px 0;
+  margin: 25px 0;
   position: relative;
 }
 .input {
   position: absolute;
   left: 70px;
   top: -5px;
-  padding: 3px;
-  border: none;
-  box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5px 0.5px,
-    rgba(9, 30, 66, 0.13) 0px 0px 0.5px 0.5px;
+  border: 1px solid transparent;
+  padding: 8px;
+  display: block;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+}
+.input[placeholder] {
+  font-size: 10px;
+  color: #0f1f38;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.label:hover .input,
+.label:active .input,
+.label:focus-within .input {
+  border: 1px solid hsla(340, 100%, 76%, 1);
+  color: hsla(340, 100%, 76%, 1);
+  cursor: pointer;
 }
 .contactsFormBtn {
-  padding: 5px 10px;
+  position: relative;
   border: none;
-  border-radius: 5px;
-  background-color: rgba(46, 139, 87, 1);
-
-  margin-top: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  height: 35px;
   color: white;
-  box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5px 0.5px,
-    rgba(9, 30, 66, 0.13) 0px 0px 0.5px 0.5px;
+  top: -47px;
+  left: 320px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 60, 0.2);
+  border-radius: 6px;
 }
 .contactsFormBtn:hover,
 .contactsFormBtn:active {
-  background-color: #228b22;
+  background-color: hsla(189, 100%, 56%, 0.6);
+  color: white;
 }

@@ -5,7 +5,6 @@ import {
   getAllContacts,
   addContacts,
   deleteContacts,
-  fetchCurrentUser,
 } from './contacts-operations';
 const { search_contact } = contactsActions;
 const items = createReducer([], {

@@ -14,12 +14,12 @@ function PhonebookHome() {
   }, [dispatch]);
   return (
     <div className={s.mainDiv}>
-      <h1>Phonebook</h1>
+      <h1 className={s.title}>Phonebook</h1>
       <ContactForm />
       {isLoadingContacts && <h2>downloading...</h2>}
       {!isLoadingContacts && (
         <>
-          <h2>Contacts</h2>
+          <h2 className={s.titleh2}>Contacts</h2>
           <Filter />
           <ContactList />
         </>
