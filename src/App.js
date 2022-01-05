@@ -1,34 +1,71 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Suspense } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import s from './App.module.css';
-// import { useDispatch, useSelector } from 'react-redux';
-import PhonebookHome from './components/phonebookHome/PhonebookHome';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from './components/header/Header';
-import AuthPage from './components/authPage/AuthPage';
-import HomePage from 'components/homePage/HomePage';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
+import PublicRoute from './components/publicRoute/PublicRoute';
+import Spinner from './components/spinner/Spinner';
+import { fetchCurrentUser } from './redux/authorization/auth-operations';
+import { getIsCurrentUser } from './redux/authorization/auth-selectors';
+const HomeView = lazy(() => import('components/homePage/HomePage.jsx'));
+const ContactsView = lazy(() =>
+  import('components/phonebookHome/PhonebookHome.jsx'),
+);
+const AuthView = lazy(() => import('components/authPage/AuthPage.jsx'));
+
 function App() {
-  // const dispatch = useDispatch();
-  const [isAuth] = useState(false);
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isCurrentUser = useSelector(getIsCurrentUser);
   useEffect(() => {
-    isAuth ? navigate('/') : navigate('/auth/login');
-  }, [isAuth]);
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <>
-      <Header />
-      {isAuth ? (
-        <Suspense fallback={<h1>Downloading...</h1>}>
-          <Routes>
-            <Route path="/contacts" element={<PhonebookHome />} />
-          </Routes>
-        </Suspense>
+      {isCurrentUser ? (
+        <Spinner />
       ) : (
-        <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/auth/:authType" element={<AuthPage />} />
-        </Routes>
+        <>
+          <Header />
+          <Suspense fallback={<Spinner />}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PublicRoute>
+                    <HomeView />
+                  </PublicRoute>
+                }
+              />
+
+              <Route
+                path="/auth/:authType"
+                element={
+                  <PublicRoute restricted redirectTo="/contacts">
+                    <AuthView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/auth/:authType"
+                element={
+                  <PublicRoute restricted>
+                    <AuthView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/contacts"
+                element={
+                  <PrivateRoute redirectTo="/auth/login">
+                    <ContactsView />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </Suspense>
+        </>
       )}
     </>
   );

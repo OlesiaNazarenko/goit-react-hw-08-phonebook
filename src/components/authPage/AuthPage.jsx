@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import s from '../authPage/AuthPage.module.css';
 import { register, login } from '../../redux/authorization/auth-operations';
-import { getIsAuth } from '../../redux/authorization/auth-selectors';
+import { MdPermIdentity, MdEmail, MdPassword } from 'react-icons/md';
+
 function AuthPage() {
   const { authType } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isAuth = useSelector(getIsAuth);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const redirect = () => {
-    isAuth === true && navigate('/contacts');
-    // authType === false && navigate('/auth/login');
-  };
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
@@ -35,8 +30,6 @@ function AuthPage() {
     e.preventDefault();
     authType === 'login' && dispatch(login({ email, password }));
     authType === 'register' && dispatch(register({ name, email, password }));
-    console.log(isAuth);
-
     setEmail('');
     setPassword('');
     setName('');
@@ -47,7 +40,7 @@ function AuthPage() {
       <form className={s.authForm} onSubmit={handleSubmit}>
         {authType === 'register' && (
           <label className={s.label} htmlFor="name">
-            Enter your name
+            <MdPermIdentity className={s.labelIcons} />
             <input
               className={s.authInput}
               type="text"
@@ -59,7 +52,7 @@ function AuthPage() {
           </label>
         )}
         <label className={s.label} htmlFor="email">
-          Enter your email
+          <MdEmail className={s.labelIcons} />
           <input
             className={s.authInput}
             type="text"
@@ -70,7 +63,7 @@ function AuthPage() {
           />
         </label>
         <label className={s.label} htmlFor="password">
-          Enter your password
+          <MdPassword className={s.labelIcons} />
           <input
             className={s.authInput}
             type="text"
@@ -80,7 +73,7 @@ function AuthPage() {
             placeholder="Enter your password"
           />
         </label>
-        <button className={s.authBtn} onClick={redirect()} type="submit">
+        <button className={s.authBtn} type="submit">
           {authType === 'login' ? 'Log In' : 'Sign Up'}
         </button>
       </form>

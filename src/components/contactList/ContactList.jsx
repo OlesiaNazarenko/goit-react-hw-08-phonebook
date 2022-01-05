@@ -20,6 +20,7 @@ function ContactList() {
               className={s.btnDelete}
               type="button"
               onClick={() => {
+                console.log(data);
                 dispatch(deleteContacts(id));
                 toast('Deleted', { autoClose: 3000, transition: Zoom });
               }}

@@ -5,6 +5,7 @@ import {
   getAllContacts,
   addContacts,
   deleteContacts,
+  fetchCurrentUser,
 } from './contacts-operations';
 const { search_contact } = contactsActions;
 const items = createReducer([], {
@@ -15,6 +16,7 @@ const items = createReducer([], {
   [deleteContacts.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
+
 const filter = createReducer('', {
   [search_contact]: (_, { payload }) => payload,
 });

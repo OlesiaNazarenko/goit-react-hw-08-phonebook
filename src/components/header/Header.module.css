@@ -2,20 +2,25 @@
   display: flex;
   width: 100%;
   padding: 10px 30px;
-  margin: 0 auto;
-  justify-content: space-between;
+  margin: 10px auto;
+  color: #0f1f38;
+  /* background-color: rgba(255, 255, 255, 0.15); */
+  /* backdrop-filter: blur(2px); */
+  /* box-shadow: 0px 5px 10px 2px rgba(34, 60, 60, 0.2); */
 }
 .homePageLink {
   text-transform: uppercase;
   text-decoration: none;
   padding: 5px 5px 0px 5px;
   height: 30px;
-  color: aliceblue;
+  color: #0f1f38;
+  /* backdrop-filter: blur(4px); */
 }
+
 .homePageLink:visited,
 .authLinks:visited,
 .OutLink:visited {
-  color: aliceblue;
+  color: #0f1f38;
   text-decoration: none;
 }
 .homePageLink:hover,
@@ -37,10 +42,13 @@
 }
 .authList {
   display: flex;
-  width: 200px;
-  justify-content: space-around;
+  position: relative;
+  right: 0;
+  width: 300px;
+  justify-content: flex-end;
   list-style: none;
   margin: 0;
+  margin-left: auto;
   padding: 5px;
 }
 .authLinks,
@@ -50,7 +58,7 @@
 }
 .OutLink {
   background: none;
-  color: aliceblue;
+  color: #0f1f38;
   border: none;
   padding: 5px;
   margin-top: -5px;
@@ -59,8 +67,4 @@
 .OutLink:active {
   background-image: linear-gradient(to right, red, yellow);
   border-radius: 8px;
-}
-.userName {
-  font-weight: 600;
-  padding: 5px;
 }
