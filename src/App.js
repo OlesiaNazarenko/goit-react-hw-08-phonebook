@@ -7,18 +7,23 @@ import PrivateRoute from './components/privateRoute/PrivateRoute';
 import PublicRoute from './components/publicRoute/PublicRoute';
 import Spinner from './components/spinner/Spinner';
 import { fetchCurrentUser } from './redux/authorization/auth-operations';
-import { getIsCurrentUser } from './redux/authorization/auth-selectors';
-const HomeView = lazy(() => import('components/homePage/HomePage.jsx'));
-const ContactsView = lazy(() =>
+import {
+  getIsCurrentUser,
+  authToken,
+} from './redux/authorization/auth-selectors';
+const HomePage = lazy(() => import('components/homePage/HomePage.jsx'));
+const PhonebookHome = lazy(() =>
   import('components/phonebookHome/PhonebookHome.jsx'),
 );
-const AuthView = lazy(() => import('components/authPage/AuthPage.jsx'));
+const AuthPage = lazy(() => import('components/authPage/AuthPage.jsx'));
 
 function App() {
   const dispatch = useDispatch();
   const isCurrentUser = useSelector(getIsCurrentUser);
   useEffect(() => {
-    dispatch(fetchCurrentUser());
+    if (authToken !== null) {
+      dispatch(fetchCurrentUser());
+    }
   }, [dispatch]);
 
   return (
@@ -26,7 +31,7 @@ function App() {
       {isCurrentUser ? (
         <Spinner />
       ) : (
-        <>
+        <div className={s.mainDiv}>
           <Header />
           <Suspense fallback={<Spinner />}>
             <Routes>
@@ -34,7 +39,7 @@ function App() {
                 path="/"
                 element={
                   <PublicRoute>
-                    <HomeView />
+                    <HomePage />
                   </PublicRoute>
                 }
               />
@@ -43,7 +48,7 @@ function App() {
                 path="/auth/:authType"
                 element={
                   <PublicRoute restricted redirectTo="/contacts">
-                    <AuthView />
+                    <AuthPage />
                   </PublicRoute>
                 }
               />
@@ -51,7 +56,7 @@ function App() {
                 path="/auth/:authType"
                 element={
                   <PublicRoute restricted>
-                    <AuthView />
+                    <AuthPage />
                   </PublicRoute>
                 }
               />
@@ -59,13 +64,13 @@ function App() {
                 path="/contacts"
                 element={
                   <PrivateRoute redirectTo="/auth/login">
-                    <ContactsView />
+                    <PhonebookHome />
                   </PrivateRoute>
                 }
               />
             </Routes>
           </Suspense>
-        </>
+        </div>
       )}
     </>
   );

@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import s from '../header/Header.module.css';
 import { logOut } from '../../redux/authorization/auth-operations';
 import { getIsAuth } from '../../redux/authorization/auth-selectors';
+import { getContacts } from '../../redux/contacts/contacts-selectors';
 import UserMenu from 'components/userMenu/UserMenu';
 function Header() {
   const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuth);
+  // let contacts = useSelector(store);
+  // console.log(contacts);
   return (
-    <>
+    <div className={s.navWrap}>
       <nav className={s.nav}>
         <Link to={'/'} className={s.homePageLink}>
           Home
@@ -25,12 +28,14 @@ function Header() {
               <li>
                 <UserMenu />
               </li>
-              <li>
+              <li className={s.authItem}>
                 <button
                   type="button"
                   className={(s.authLinks, s.OutLink)}
                   onClick={() => {
                     dispatch(logOut());
+                    // console.log(contacts);
+                    // contacts = [];
                   }}
                 >
                   Log Out
@@ -39,12 +44,12 @@ function Header() {
             </>
           ) : (
             <>
-              <li>
+              <li className={s.authItem}>
                 <Link className={s.authLinks} to={'/auth/register'}>
                   Sign up
                 </Link>
               </li>
-              <li>
+              <li className={s.authItem}>
                 <Link to={'/auth/login'} className={s.authLinks}>
                   Log in
                 </Link>
@@ -53,7 +58,7 @@ function Header() {
           )}
         </ul>
       </nav>
-    </>
+    </div>
   );
 }
 export default Header;

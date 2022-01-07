@@ -55,7 +55,7 @@ function AuthPage() {
           <MdEmail className={s.labelIcons} />
           <input
             className={s.authInput}
-            type="text"
+            type="email"
             name="email"
             value={email}
             placeholder="Enter your email"

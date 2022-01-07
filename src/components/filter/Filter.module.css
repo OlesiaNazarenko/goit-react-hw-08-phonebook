@@ -19,7 +19,7 @@
 .seacrhInput:hover,
 .seacrhInput:active,
 .seacrhInput:focus-within {
-  border: 1px solid hsla(340, 100%, 76%, 1);
-  color: hsla(340, 100%, 76%, 1);
+  border: 1px solid lightskyblue;
+  color: lightskyblue;
   cursor: pointer;
 }
