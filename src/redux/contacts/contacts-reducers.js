@@ -14,7 +14,7 @@ const items = createReducer([], {
   },
   [deleteContacts.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
-  [logOutAction.fulfilled]: (state, { payload }) => [],
+  [logOutAction]: (state, { payload }) => [],
 });
 
 const filter = createReducer('', {
