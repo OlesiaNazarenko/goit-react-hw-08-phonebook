@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import * as contactsActions from './contacts-actions';
+import { search_contact, logOutAction } from '../contacts/contacts-actions';
 import {
   getAllContacts,
   addContacts,
   deleteContacts,
 } from './contacts-operations';
-const { search_contact, logOutAction } = contactsActions;
+
 const items = createReducer([], {
   [getAllContacts.fulfilled]: (_, { payload }) => payload,
   [addContacts.fulfilled]: (state, { payload }) => {
@@ -14,14 +14,13 @@ const items = createReducer([], {
   },
   [deleteContacts.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
+  [logOutAction.fulfilled]: (state, { payload }) => [],
 });
 
 const filter = createReducer('', {
   [search_contact]: (_, { payload }) => payload,
 });
-const logOutContacts = createReducer([], {
-  [logOutAction.fulfilled]: (state, { payload }) => [],
-});
+
 const isLoading = createReducer(false, {
   [getAllContacts.pending]: () => true,
   [getAllContacts.fulfilled]: () => false,
@@ -46,5 +45,4 @@ export default combineReducers({
   filter,
   isLoading,
   error,
-  logOutContacts,
 });

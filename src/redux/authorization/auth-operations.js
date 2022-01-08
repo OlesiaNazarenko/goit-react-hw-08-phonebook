@@ -43,7 +43,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     token.unset();
-    return thunkAPI.dispatch(logOutAction());
+    thunkAPI.dispatch(logOutAction());
   } catch (error) {
     toast.error(error.message, { autoClose: 2000 });
     return thunkAPI.rejectWithValue(error);
