@@ -21,6 +21,7 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isLoading = false;
+      state.error = null;
     },
     [register.rejected](state, action) {
       state.isLoggedIn = false;
