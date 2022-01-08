@@ -36,7 +36,7 @@ function AuthPage() {
   };
   return (
     <div className={s.formWrap}>
-      <h1>Please, enter your email and password in the form:</h1>
+      <h1>Please, fill in the form:</h1>
       <form className={s.authForm} onSubmit={handleSubmit}>
         {authType === 'register' && (
           <label className={s.label} htmlFor="name">

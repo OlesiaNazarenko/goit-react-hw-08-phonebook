@@ -6,6 +6,13 @@ import { logOut } from '../../redux/authorization/auth-operations';
 import { getIsAuth } from '../../redux/authorization/auth-selectors';
 import { getContacts } from '../../redux/contacts/contacts-selectors';
 import UserMenu from 'components/userMenu/UserMenu';
+import {
+  MdHome,
+  MdContacts,
+  MdLogout,
+  MdLogin,
+  MdHowToReg,
+} from 'react-icons/md';
 function Header() {
   const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuth);
@@ -14,19 +21,29 @@ function Header() {
   return (
     <div className={s.navWrap}>
       <nav className={s.nav}>
-        <Link to={'/'} className={s.homePageLink}>
-          Home
-        </Link>
-        {isAuth === true && (
-          <Link to={'/contacts'} className={s.homePageLink}>
-            Contacts
-          </Link>
-        )}
+        <ul>
+          <li>
+            {' '}
+            <Link to={'/'} className={s.homePageLink}>
+              <MdHome className={s.headerIcon} />
+              Home
+            </Link>
+          </li>
+          {isAuth === true && (
+            <li>
+              <Link to={'/contacts'} className={s.homePageLink}>
+                <MdContacts className={s.headerIcon} />
+                Contacts
+              </Link>
+            </li>
+          )}
+        </ul>
+
         <ul className={s.authList}>
           {isAuth === true ? (
             <>
               <li>
-                <UserMenu />
+                <UserMenu className={s.headerIcon} />
               </li>
               <li className={s.authItem}>
                 <button
@@ -38,6 +55,7 @@ function Header() {
                     // contacts = [];
                   }}
                 >
+                  <MdLogout className={s.headerIcon} />
                   Log Out
                 </button>
               </li>
@@ -46,11 +64,13 @@ function Header() {
             <>
               <li className={s.authItem}>
                 <Link className={s.authLinks} to={'/auth/register'}>
+                  <MdHowToReg className={s.headerIcon} />
                   Sign up
                 </Link>
               </li>
               <li className={s.authItem}>
                 <Link to={'/auth/login'} className={s.authLinks}>
+                  <MdLogin className={s.headerIcon} />
                   Log in
                 </Link>
               </li>

@@ -1,25 +1,57 @@
 .btnDelete {
-  padding: 5px 10px;
+  position: relative;
+  width: 30px;
   border: none;
-  border-radius: 6px;
-  margin-top: -25px;
-  margin-left: auto;
+  top: -82px;
+  left: 160px;
+  font-size: 20px;
   display: block;
   color: #2f2e33;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px -5px;
+  background-color: transparent;
 }
 .btnDelete:hover,
 .btnDelete:active {
-  background-color: hsla(22, 100%, 77%, 1);
-  color: white;
+  color: #fd7279;
 }
 .ContactListSpan {
-  margin: 0 10px;
+  margin: 10px 0;
+  display: block;
+}
+.ContactListSpan:nth-of-type(2) {
+  margin-top: 30px;
 }
 .ContactList {
   position: relative;
+  width: 650px;
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 .ContactListItem {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-right: 20px;
+  display: block;
+  width: 30%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+  height: 100px;
+}
+.ContactListIconSpan {
+  display: block;
+  position: relative;
+  top: -27px;
+  margin-bottom: 10px;
+}
+.ContactListIcon {
+  font-size: 50px;
+  position: absolute;
+  left: 70px;
+}
+.ContactListItem:hover {
+  /* box-shadow: 0 10px 5px -5px lightskyblue; */
+  border-bottom: 1px solid lightskyblue;
+  box-shadow: 0 5px 5px -5px rgba(30, 129, 204, 0.9);
 }

@@ -6,7 +6,7 @@ import {
   addContacts,
   deleteContacts,
 } from './contacts-operations';
-const { search_contact } = contactsActions;
+const { search_contact, logOutAction } = contactsActions;
 const items = createReducer([], {
   [getAllContacts.fulfilled]: (_, { payload }) => payload,
   [addContacts.fulfilled]: (state, { payload }) => {
@@ -18,6 +18,9 @@ const items = createReducer([], {
 
 const filter = createReducer('', {
   [search_contact]: (_, { payload }) => payload,
+});
+const logOutContacts = createReducer([], {
+  [logOutAction.fulfilled]: (state, { payload }) => [],
 });
 const isLoading = createReducer(false, {
   [getAllContacts.pending]: () => true,
@@ -43,4 +46,5 @@ export default combineReducers({
   filter,
   isLoading,
   error,
+  logOutContacts,
 });

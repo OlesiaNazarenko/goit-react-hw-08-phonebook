@@ -1,6 +1,6 @@
 .navWrap {
   position: relative;
-  width: 200px;
+  width: 250px;
 }
 .navWrap:before {
   content: '';
@@ -9,11 +9,11 @@
   left: 0;
   right: 0;
   bottom: 20px;
-  border-right: 1px solid #2f2e33;
+  border-right: 1px solid lightgray;
 }
 
 .nav {
-  width: 200px;
+  width: 250px;
   position: relative;
   padding: 20px;
   margin: 10px;
@@ -57,7 +57,7 @@
   position: relative;
   list-style: none;
   margin: 0;
-  padding: 5px;
+  padding: 0;
 }
 .authItem {
   margin-top: 20px;
@@ -66,7 +66,6 @@
 .OutLink {
   padding: 5px 10px;
   text-decoration: none;
-
   border-radius: 8px;
 }
 .OutLink {
@@ -74,7 +73,6 @@
   position: absolute;
   color: #2f2e33;
   border: none;
-  padding: 5px;
   bottom: auto;
 }
 
@@ -87,4 +85,9 @@
   );
   border-radius: 8px;
   color: #ffffff;
+}
+.headerIcon {
+  position: relative;
+  right: 5px;
+  top: 2px;
 }

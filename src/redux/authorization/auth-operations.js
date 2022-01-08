@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import { logOutAction } from '../contacts/contacts-actions';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure();
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
@@ -42,6 +43,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     token.unset();
+    return thunkAPI.dispatch(logOutAction());
   } catch (error) {
     toast.error(error.message, { autoClose: 2000 });
     return thunkAPI.rejectWithValue(error);
@@ -65,3 +67,5 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   },
 );
+
+// uuuuuuuuuuu;
