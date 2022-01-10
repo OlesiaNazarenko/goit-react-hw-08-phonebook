@@ -1,35 +1,33 @@
 .contactsForm {
-  width: 300px;
+  width: 100%;
 }
 .label {
   display: block;
-  margin: 25px 0;
+  margin: 15px 0;
   position: relative;
 }
 .input {
-  position: absolute;
-  left: 70px;
-  top: -5px;
+  position: relative;
   border: 1px solid transparent;
   padding: 8px;
   display: block;
   width: 80%;
-  background-color: white;
-  border-radius: 5px;
+  background-color: var(--input-bg-color);
+  font-size: var(--placeholder-font-size);
+  border-radius: var(--input-border-radius);
 }
 .input[placeholder] {
-  font-size: 10px;
+  font-size: var(--placeholder-font-size);
   color: #0f1f38;
   border: 1px solid transparent;
-  border-radius: 6px;
-  background-color: white;
+  background-color: var(--input-bg-color);
 }
 
 .label:hover .input,
 .label:active .input,
 .label:focus-within .input {
-  border: 1px solid lightskyblue;
-  color: lightskyblue;
+  border: 1px solid var(--hover-color);
+  color: var(--hover-color);
   cursor: pointer;
 }
 .contactsFormBtn {
@@ -37,16 +35,50 @@
   border: none;
   text-transform: uppercase;
   text-decoration: none;
-  height: 35px;
-  color: #2f2e33;
-  top: -47px;
-  left: 320px;
-  background-color: white;
-  border-radius: 6px;
+  height: 36px;
+  color: var(--main-color);
+  background-color: var(--input-bg-color);
+  border-radius: var(--input-border-radius);
   box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px -5px;
 }
 .contactsFormBtn:hover,
 .contactsFormBtn:active {
-  background-color: lightskyblue;
-  color: white;
+  background-color: var(--hover-color);
+  color: var(--input-bg-color);
+}
+@media screen and (min-width: 568px) {
+  .input {
+    position: relative;
+    width: 60%;
+  }
+  .contactsForm {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .contactsForm {
+    width: 620px;
+  }
+  .input {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .input {
+    position: absolute;
+    left: 70px;
+    top: -5px;
+    width: 37%;
+  }
+  .contactsFormBtn {
+    font-size: var(--placeholder-font-size);
+    top: -49px;
+    left: 320px;
+  }
+  .contactsForm {
+    width: 650px;
+  }
+  .label {
+    margin: 25px 0;
+  }
 }

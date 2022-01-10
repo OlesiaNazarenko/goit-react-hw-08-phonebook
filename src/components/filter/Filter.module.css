@@ -2,24 +2,47 @@
   border: 1px solid transparent;
   padding: 10px;
   display: block;
-  margin-top: 10px;
-  width: 60%;
-  background-color: white;
+  margin-top: 5px;
+  width: 80%;
+  background-color: var(--input-bg-color);
   border-radius: 5px;
-  font-size: 12px;
+  font-size: var(--placeholder-font-size);
 }
 .seacrhInput[placeholder] {
-  font-size: 14px;
+  font-size: var(--placeholder-font-size);
   color: #0f1f38;
   border: 1px solid transparent;
   border-radius: 6px;
-  background-color: white;
+  background-color: var(--input-bg-color);
 }
-
+.filterForm {
+  width: 100%;
+}
 .seacrhInput:hover,
 .seacrhInput:active,
 .seacrhInput:focus-within {
-  border: 1px solid lightskyblue;
-  color: lightskyblue;
+  border: 1px solid var(--hover-color);
+  color: var(--hover-color);
   cursor: pointer;
+}
+@media screen and (min-width: 568px) {
+  .seacrhInput {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .filterForm {
+    width: 620px;
+  }
+  .seacrhInput {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .filterForm {
+    width: 650px;
+  }
+  .seacrhInput {
+    width: 48%;
+  }
 }

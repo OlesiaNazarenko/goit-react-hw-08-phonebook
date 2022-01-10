@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
+import '../../App.module.css';
 import s from 'components/contactForm/ContactForm.module.css';
 import { addContacts } from 'redux/contacts/contacts-operations.js';
 import { getContacts } from 'redux/contacts/contacts-selectors.js';

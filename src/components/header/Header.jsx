@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import '../../App.module.css';
 import s from '../header/Header.module.css';
 import { logOut } from '../../redux/authorization/auth-operations';
 import { getIsAuth } from '../../redux/authorization/auth-selectors';
-import { getContacts } from '../../redux/contacts/contacts-selectors';
 import UserMenu from 'components/userMenu/UserMenu';
+import { GoThreeBars } from 'react-icons/go';
 import {
   MdHome,
   MdContacts,
@@ -16,14 +17,55 @@ import {
 function Header() {
   const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuth);
-  // let contacts = useSelector(store);
-  // console.log(contacts);
   return (
     <div className={s.navWrap}>
+      <nav className={s.sidebarMenu}>
+        <ul>
+          <li className={s['home-icon']}>
+            <div>
+              <Link to={'/'}>
+                <MdHome className={s.headerIcon} />
+              </Link>
+            </div>
+          </li>
+          {isAuth === true && (
+            <li className={s['contacts-icon']}>
+              <div>
+                <Link to={'/contacts'}>
+                  <MdContacts className={s.headerIcon} />
+                </Link>
+              </div>
+            </li>
+          )}
+
+          <li className={s['login-icon']}>
+            <div>
+              <MdLogin className={s.headerIcon} />
+            </div>
+          </li>
+          <li className={s['logout-icon']}>
+            <div>
+              <button
+                type="button"
+                className={(s.authLinks, s.OutLink)}
+                onClick={() => {
+                  dispatch(logOut());
+                }}
+              >
+                <MdLogout className={s.headerIcon} />
+              </button>
+            </div>
+          </li>
+          <li className={s['register-icon']}>
+            <div>
+              <MdHowToReg className={s.headerIcon} />
+            </div>
+          </li>
+        </ul>
+      </nav>
       <nav className={s.nav}>
         <ul>
           <li>
-            {' '}
             <Link to={'/'} className={s.homePageLink}>
               <MdHome className={s.headerIcon} />
               Home
@@ -51,8 +93,6 @@ function Header() {
                   className={(s.authLinks, s.OutLink)}
                   onClick={() => {
                     dispatch(logOut());
-                    // console.log(contacts);
-                    // contacts = [];
                   }}
                 >
                   <MdLogout className={s.headerIcon} />

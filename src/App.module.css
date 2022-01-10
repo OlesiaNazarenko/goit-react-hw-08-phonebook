@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+:root {
+  --main-color: #2f2e33;
+  --hover-color: #87cefa;
+  --input-bg-color: #fff;
+  --border-color: #d3d3d3;
+  --btn-hover-bg: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  --btn-hover-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  --placeholder-font-size: 14px;
+  --input-border-radius: 6px;
+  --font-family: 'Poppins', sans-serif;
+  --main-font-weight: 300;
+  --titles-font-weight: 600;
+}
 body {
-  /* background-image: url('./images/background1.jpg'); */
   background-image: #ff0000;
   background-image: radial-gradient(
       at 40% 20%,
@@ -15,10 +28,14 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  color: #2f2e33;
+  color: var(--main-color);
+  font-family: var(--font-family);
+  font-weight: var(--main-font-weight);
 }
+
 .mainDiv {
-  width: 1000px;
+  position: relative;
+  width: 98%;
   display: flex;
   margin: 50px auto;
   min-height: 400px;
@@ -28,6 +45,16 @@ body {
   padding: 10px;
   background-clip: content-box;
 }
+@media screen and (min-width: 700px) {
+  .mainDiv {
+    width: 760px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .mainDiv {
+    width: 1000px;
+  }
+}
 ul {
   list-style: none;
   margin: 0;
@@ -35,4 +62,8 @@ ul {
 }
 h2 {
   margin: 0;
+}
+h1,
+h2 {
+  font-weight: var(--titles-font-weight);
 }
