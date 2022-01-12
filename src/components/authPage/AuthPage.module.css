@@ -3,25 +3,47 @@
   display: block;
   padding: 20px 30px;
   width: 100%;
+  margin-top: -30px;
 }
-.formWrap h1 {
+.authForm h1 {
   font-size: 16px;
+  text-align: center;
 }
 .authForm {
   border: none;
   width: 100%;
   display: block;
+  margin: 0 auto;
+}
+.label {
+  display: flex;
+  padding: 5px 0;
+  font-size: 22px;
+  justify-content: center;
 }
 @media screen and (min-width: 480px) {
   .authForm {
     width: 350px;
   }
 }
-.label {
-  display: flex;
-  padding: 5px 0;
-  font-size: 22px;
+@media screen and (min-width: 580px) {
+  .formWrap {
+    margin-top: 4px;
+  }
+  .authForm {
+    margin: 0;
+  }
+  .authForm h1 {
+    text-align: left;
+  }
+  .label {
+    justify-content: left;
+  }
+  .authBtn {
+    margin: 10px 0;
+  }
 }
+
 .labelIcons {
   margin: 14px 5px 0 0px;
 }
@@ -53,7 +75,7 @@
 
 .authBtn {
   display: block;
-  margin: 10px 0;
+  margin: 10px auto;
   background-image: var(--btn-hover-bg);
   border: 0;
   border-radius: var(--input-border-radius);

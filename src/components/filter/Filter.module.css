@@ -2,7 +2,8 @@
   border: 1px solid transparent;
   padding: 10px;
   display: block;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+  margin: 5px auto;
   width: 80%;
   background-color: var(--input-bg-color);
   border-radius: 5px;
@@ -28,6 +29,7 @@
 @media screen and (min-width: 568px) {
   .seacrhInput {
     width: 60%;
+    margin: 5px 0;
   }
 }
 @media screen and (min-width: 700px) {

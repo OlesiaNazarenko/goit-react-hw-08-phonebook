@@ -37,8 +37,8 @@ function AuthPage() {
   };
   return (
     <div className={s.formWrap}>
-      <h1>Please, fill in the form:</h1>
       <form className={s.authForm} onSubmit={handleSubmit}>
+        <h1>Please, fill in the form:</h1>
         {authType === 'register' && (
           <label className={s.label} htmlFor="name">
             <MdPermIdentity className={s.labelIcons} />

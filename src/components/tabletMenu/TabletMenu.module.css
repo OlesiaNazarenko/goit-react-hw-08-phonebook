@@ -1,0 +1,118 @@
+.sidebarMenu {
+  display: none;
+  overflow: hidden;
+}
+.sidebarMenu {
+  float: left;
+  position: relative;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+.sidebarMenu ul {
+  text-align: center;
+}
+
+.sidebarMenu ul li {
+  position: relative;
+  width: 70px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.4s ease-out;
+}
+
+.sidebarMenu ul li:after {
+  position: absolute;
+  background: transparent;
+  color: var(--main-color);
+  top: 0;
+  left: 70px;
+  width: 70px;
+  height: 100%;
+  opacity: 0;
+  font-size: 10px;
+  transform: perspective(400px) rotateY(90deg);
+  transform-origin: 0 100%;
+  transition: all 0.4s ease-out;
+}
+
+.home-icon:after {
+  content: 'Home';
+  line-height: 88px;
+}
+.contacts-icon:after {
+  content: 'Contacts';
+  line-height: 88px;
+}
+
+.login-icon:after {
+  content: 'Log In';
+  line-height: 80px;
+}
+.logout-icon:after {
+  content: 'Log Out';
+  line-height: 80px;
+}
+.register-icon:after {
+  content: 'Sign Up';
+  line-height: 80px;
+}
+
+.sidebarMenu ul li:hover {
+  transform: translateX(-70px);
+}
+.sidebarMenu ul li:hover .headerIcon {
+  visibility: hidden;
+}
+
+.sidebarMenu ul li:hover:after {
+  opacity: 1;
+  transform: perspective(400px) rotateY(0deg) scale(1);
+}
+
+.sidebarMenu ul li > div {
+  display: inline-block;
+  padding: 25px 0;
+  background: transparent;
+}
+
+.sidebarMenu ul li div {
+  position: relative;
+}
+.sidebarMenu .headerIcon {
+  font-size: 30px;
+}
+@media screen and (min-width: 580px) {
+  .sidebarMenu {
+    display: block;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .sidebarMenu {
+    display: none;
+  }
+}
+.authLinks,
+.OutLink {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: var(--main-color);
+  border-radius: var(--input-border-radius);
+}
+.OutLink {
+  background: none;
+  color: var(--main-color);
+  border: none;
+  bottom: auto;
+}
+
+.homePageLink,
+.authLinks,
+.OutLink,
+.homePageLink:visited,
+.authLinks:visited,
+.OutLink:visited {
+  color: var(--main-color);
+  text-decoration: none;
+}

@@ -6,6 +6,7 @@ import ContactList from '../contactList/ContactList';
 import { getAllContacts } from '../../redux/contacts/contacts-operations';
 import { getLoading } from '../../redux/contacts/contacts-selectors';
 import s from '../phonebookHome/PhonebookHome.module.css';
+import Spinner from '../spinner/Spinner';
 function PhonebookHome() {
   const dispatch = useDispatch();
   const isLoadingContacts = useSelector(getLoading);
@@ -14,9 +15,9 @@ function PhonebookHome() {
   }, [dispatch]);
   return (
     <div className={s.mainDiv}>
-      <h1 className={s.title}>Phonebook</h1>
+      <h2 className={s.title}>Phonebook</h2>
       <ContactForm />
-      {isLoadingContacts && <h2>downloading...</h2>}
+      {isLoadingContacts && <Spinner />}
       {!isLoadingContacts && (
         <>
           <h2 className={s.titleh2}>Contacts</h2>

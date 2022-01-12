@@ -12,6 +12,7 @@
   padding: 8px;
   display: block;
   width: 80%;
+  margin: 4px auto;
   background-color: var(--input-bg-color);
   font-size: var(--placeholder-font-size);
   border-radius: var(--input-border-radius);
@@ -50,6 +51,7 @@
   .input {
     position: relative;
     width: 60%;
+    margin: 4px 0;
   }
   .contactsForm {
     width: 100%;

@@ -2,7 +2,8 @@ import s from '../homePage/HomePage.module.css';
 function HomePage() {
   return (
     <div className={s.homePageWrap}>
-      <h2>Hi! This is a "Phonebook" application.</h2>
+      <h2>"Phonebook" app</h2>
+      <h3>Hi! This is a "Phonebook" application.</h3>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever

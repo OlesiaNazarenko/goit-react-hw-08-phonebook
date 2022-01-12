@@ -1,0 +1,101 @@
+.mbMenu {
+  width: 100%;
+}
+.HumburgerIcon,
+.closeIcon {
+  font-size: 30px;
+  margin: 30px;
+  cursor: pointer;
+  position: relative;
+  z-index: 11;
+}
+.closeIcon {
+  margin-left: 90%;
+  width: 30px;
+  top: -70px;
+}
+@media screen and (min-width: 580px) {
+  .mbMenu {
+    display: none;
+  }
+}
+.mbList {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 100px 0;
+}
+.mbList li {
+  margin: 30px auto;
+}
+.headerIcon {
+  font-size: 40px;
+  position: relative;
+  top: 6px;
+}
+.authLinks,
+.OutLink {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: var(--main-color);
+  border-radius: var(--input-border-radius);
+}
+.OutLink {
+  background: none;
+
+  color: var(--main-color);
+  border: none;
+  bottom: auto;
+}
+
+.OutLink:hover,
+.OutLink:active {
+  background: linear-gradient(
+    45deg,
+    hsla(343, 100%, 76%, 1),
+    hsla(22, 100%, 77%, 1)
+  );
+  border-radius: 8px;
+  color: var(--input-bg-color);
+}
+.homePageLink {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px 10px;
+
+  border-radius: var(--input-border-radius);
+  color: var(--main-color);
+}
+
+.homePageLink:visited,
+.authLinks:visited,
+.OutLink:visited {
+  color: var(--main-color);
+  text-decoration: none;
+}
+.homePageLink:hover,
+.homePageLink:active,
+.authLinks:hover,
+.authLinks:active {
+  background-image: var(--btn-hover-bg);
+  border: 0;
+  box-shadow: var(--btn-hover-shadow);
+  box-sizing: border-box;
+  color: var(--input-bg-color);
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}

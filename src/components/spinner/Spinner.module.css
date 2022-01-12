@@ -1,6 +1,10 @@
-.loader {
-  width: 300px;
-  margin: 150px auto;
+.loaderWrap {
+  position: relative;
+  width: 100%;
   display: flex;
-  color: lightslategrey;
+  margin: 150px auto;
+}
+.loader {
+  display: block;
+  margin: 0 auto;
 }

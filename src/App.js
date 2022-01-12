@@ -10,13 +10,14 @@ import { fetchCurrentUser } from './redux/authorization/auth-operations';
 import {
   getIsCurrentUser,
   authToken,
+  getIsAuth,
 } from './redux/authorization/auth-selectors';
+import UserMenu from 'components/userMenu/UserMenu';
 const HomePage = lazy(() => import('components/homePage/HomePage.jsx'));
 const PhonebookHome = lazy(() =>
   import('components/phonebookHome/PhonebookHome.jsx'),
 );
 const AuthPage = lazy(() => import('components/authPage/AuthPage.jsx'));
-
 function App() {
   const dispatch = useDispatch();
   const isCurrentUser = useSelector(getIsCurrentUser);
@@ -25,13 +26,14 @@ function App() {
       dispatch(fetchCurrentUser());
     }
   }, [dispatch]);
-
+  const isAuth = useSelector(getIsAuth);
   return (
     <>
       {isCurrentUser ? (
         <Spinner />
       ) : (
         <div className={s.mainDiv}>
+          {isAuth === true && <UserMenu />}
           <Header />
           <Suspense fallback={<Spinner />}>
             <Routes>

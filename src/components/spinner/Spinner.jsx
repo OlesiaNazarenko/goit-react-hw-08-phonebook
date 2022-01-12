@@ -4,13 +4,14 @@ import s from './Spinner.module.css';
 
 export default function Spinner() {
   return (
-    <div className={s.loader}>
+    <div className={s.loaderWrap}>
       <Loader
         type="ThreeDots"
-        color="#000000"
+        color="#2f2e33"
         height={50}
         width={50}
         timeout={3000}
+        className={s.loader}
       />
     </div>
   );
