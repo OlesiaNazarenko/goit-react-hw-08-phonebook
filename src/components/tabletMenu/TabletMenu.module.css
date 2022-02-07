@@ -73,13 +73,11 @@
 
 .sidebarMenu ul li > div {
   display: inline-block;
-  padding: 25px 0;
   background: transparent;
+  position: relative;
+  width: 100%;
 }
 
-.sidebarMenu ul li div {
-  position: relative;
-}
 .sidebarMenu .headerIcon {
   font-size: 30px;
 }
@@ -95,7 +93,6 @@
 }
 .authLinks,
 .OutLink {
-  padding: 5px 10px;
   text-decoration: none;
   color: var(--main-color);
   border-radius: var(--input-border-radius);
@@ -113,6 +110,9 @@
 .homePageLink:visited,
 .authLinks:visited,
 .OutLink:visited {
+  width: 100%;
+  padding: 25px 0;
+  display: block;
   color: var(--main-color);
   text-decoration: none;
 }
