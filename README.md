@@ -9,5 +9,5 @@
 <p><img src="https://user-images.githubusercontent.com/80903117/170893313-88aa118c-6717-418f-b964-94d5c4dcbb3a.gif" alt="Adding new contact"/ width="600"></p>
 <p>After deleting a contact there will be a message was the process succeed or not.</p>
 <p><img src="https://user-images.githubusercontent.com/80903117/170893342-99a2482c-09b8-4658-ac03-61db552ce66d.gif" alt="Adding new contact"/ width="600"></p>
-
+<p>This app has responsive design and was created for using on all devices: mobile, tablet, PC. </p>
 <p>Demo: <a href="https://phonebook-on.netlify.app/">link</a></p>
